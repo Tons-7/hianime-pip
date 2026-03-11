@@ -32,8 +32,8 @@ public class SkipScriptBuilder {
                     for i, s in ipairs(skips) do
                         if pos >= s.start and pos < s.stop and not skip_shown[i] then
                             skip_shown[i] = true
-                            mp.osd_message("[Press S to " .. s.label .. "]", 9999)
-                            mp.add_forced_key_binding("s", "do_skip_" .. i, function()
+                            mp.osd_message("[Press G to " .. s.label .. "]", 9999)
+                            mp.add_forced_key_binding("g", "do_skip_" .. i, function()
                                 mp.set_property("time-pos", s.stop)
                                 mp.osd_message("Skipped!", 2)
                                 mp.remove_key_binding("do_skip_" .. i)
