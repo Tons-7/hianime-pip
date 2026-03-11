@@ -99,7 +99,7 @@ The tool will:
 ## Features
 
 - **Auto quality** — always picks the highest available resolution
-- **Skip intro/outro** — press `S` when the on-screen prompt appears
+- **Skip intro/outro** — press `G` when the on-screen prompt appears
 - **Subtitles** — English subs fetched automatically if available
 - **PiP window** — stays on top at 30% screen size, anchored to bottom-right
 
