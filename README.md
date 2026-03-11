@@ -82,6 +82,7 @@ You can run it directly via Maven:
 ```
 mvn exec:java -Dexec.mainClass=Main
 ```
+Or just run the play.bat by writing ```play``` in cmd while in the project directory.
 
 Or run the compiled classes from IntelliJ using the **Main** run configuration (included in `.idea/runConfigurations`).
 
