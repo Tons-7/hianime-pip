@@ -12,11 +12,15 @@ A minimal command-line tool that plays anime from [HiAnime](https://hianime.to) 
 | [yt-dlp](https://github.com/yt-dlp/yt-dlp) | Latest | Used to resolve stream URLs and subtitles |
 | [yt-dlp-hianime](https://github.com/pratikpatel8982/yt-dlp-hianime) | Latest | yt-dlp extractor plugin for HiAnime — **required** |
 
-### Install yt-dlp (easiest via Chocolatey)
+### Install yt-dlp
+
+Download the `.exe` directly from the [yt-dlp releases](https://github.com/yt-dlp/yt-dlp/releases) page.
+
+Or install using Chocolatey
+
 ```
 choco install yt-dlp
 ```
-Or download the `.exe` directly from the [yt-dlp releases](https://github.com/yt-dlp/yt-dlp/releases) page.
 
 ### Install the HiAnime yt-dlp plugin
 
