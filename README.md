@@ -78,18 +78,24 @@ mvn package
 
 ## Running
 
-You can run it directly via Maven:
-```
-mvn exec:java -Dexec.mainClass=Main
-```
-Or just run the play.bat by writing ```play``` in cmd while in the project directory.
+From the project directory in CMD, use `play`:
 
-Or run the compiled classes from IntelliJ using the **Main** run configuration (included in `.idea/runConfigurations`).
+**Interactive mode** — prompts you to paste the URL:
+```
+play
+```
 
-When prompted, paste any HiAnime episode URL:
+**Direct mode** — pass the URL as an argument:
 ```
-Paste HiAnime URL: https://hianime.to/watch/one-piece-100?ep=2142
+play https://hianime.to/watch/one-piece-100?ep=2142
 ```
+
+If the URL contains `&` (e.g. multiple query parameters), wrap it in quotes:
+```
+play "https://hianime.to/watch/one-piece-100?ep=2142&dub=true"
+```
+
+> You can also run via Maven directly: `mvn exec:java -Dexec.mainClass=Main`
 
 The tool will:
 1. Resolve the highest quality stream URL via yt-dlp
