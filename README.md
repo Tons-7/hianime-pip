@@ -1,6 +1,6 @@
 # anime-pip
 
-A minimal command-line tool that plays anime from [HiAnime](https://hianime.to) in a Picture-in-Picture window using mpv, with automatic subtitle fetching and skip intro/outro support.
+A minimal command-line tool that plays anime from [AniWatch](https://aniwatchtv.to) in a Picture-in-Picture window using mpv, with automatic subtitle fetching and skip intro/outro support.
 
 ## Prerequisites
 
@@ -10,21 +10,21 @@ A minimal command-line tool that plays anime from [HiAnime](https://hianime.to) 
 | [Maven](https://maven.apache.org/download.cgi) | 3.8+ | Must be on your `PATH` |
 | [mpv.net](https://github.com/mpvnet-player/mpv.net) | Latest | Windows mpv frontend |
 | [yt-dlp](https://github.com/yt-dlp/yt-dlp) | Latest | Used to resolve stream URLs and subtitles |
-| [yt-dlp-hianime](https://github.com/pratikpatel8982/yt-dlp-hianime) | Latest | yt-dlp extractor plugin for HiAnime — **required** |
+| [yt-dlp-aniwatch plugin](https://github.com/pratikpatel8982/yt-dlp-hianime) | Latest | yt-dlp extractor plugin for AniWatch — **required** |
 
 ### Install yt-dlp
 
 Download the `.exe` directly from the [yt-dlp releases](https://github.com/yt-dlp/yt-dlp/releases) page.
 
-Or install using Chocolatey
+Or install using Chocolatey:
 
 ```
 choco install yt-dlp
 ```
 
-### Install the HiAnime yt-dlp plugin
+### Install the AniWatch yt-dlp plugin
 
-yt-dlp does not support HiAnime natively — this plugin is required for stream extraction to work.
+yt-dlp does not support AniWatch natively — this plugin is required for stream extraction to work.
 
 **If you installed yt-dlp via Python/pip:**
 ```
@@ -36,17 +36,17 @@ python -m pip install -U https://github.com/pratikpatel8982/yt-dlp-hianime/archi
 1. Download the plugin ZIP from [github.com/pratikpatel8982/yt-dlp-hianime](https://github.com/pratikpatel8982/yt-dlp-hianime) and extract it
 2. Create this exact folder structure (create folders if they don't exist):
    ```
-   %APPDATA%\yt-dlp\plugins\hianime\yt_dlp_plugins\extractor\
+   %APPDATA%\yt-dlp\plugins\aniwatch\yt_dlp_plugins\extractor\
    ```
-3. Place `hianime.py` and `megacloud.py` from the extracted ZIP into that `extractor` folder
+3. Place `aniwatch.py` and `megacloud.py` into that `extractor` folder
 
 The final structure should look like:
 ```
-%APPDATA%\yt-dlp\plugins\hianime\yt_dlp_plugins\extractor\hianime.py
-%APPDATA%\yt-dlp\plugins\hianime\yt_dlp_plugins\extractor\megacloud.py
+%APPDATA%\yt-dlp\plugins\aniwatch\yt_dlp_plugins\extractor\aniwatch.py
+%APPDATA%\yt-dlp\plugins\aniwatch\yt_dlp_plugins\extractor\megacloud.py
 ```
 
-The plugin is invoked automatically when a HiAnime URL is detected — no extra flags needed.
+The plugin is invoked automatically when an AniWatch URL is detected — no extra flags needed.
 
 ## Setup
 
@@ -87,12 +87,12 @@ play
 
 **Direct mode** — pass the URL as an argument:
 ```
-play https://hianime.to/watch/one-piece-100?ep=2142
+play https://aniwatchtv.to/watch/one-piece-100?ep=2142
 ```
 
 If the URL contains `&` (e.g. multiple query parameters), wrap it in quotes:
 ```
-play "https://hianime.to/watch/one-piece-100?ep=2142&dub=true"
+play "https://aniwatchtv.to/watch/one-piece-100?ep=2142&dub=true"
 ```
 
 > You can also run via Maven directly: `mvn exec:java -Dexec.mainClass=Main`
@@ -113,13 +113,13 @@ The tool will:
 ## How it works
 
 ```
-HiAnime URL
+AniWatch URL
     │
     ▼
-yt-dlp + yt-dlp-hianime plugin  → stream URL + chapters
+yt-dlp + aniwatch plugin    → stream URL + chapters
     │
-    ├── AniSkip API              → fallback skip times if no chapters
-    ├── yt-dlp --write-subs      → English subtitles        ← parallel
+    ├── AniSkip API          → fallback skip times if no chapters
+    ├── yt-dlp --write-subs  → English subtitles        ← parallel
     │
     ▼
 mpv.net

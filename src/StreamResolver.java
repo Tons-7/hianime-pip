@@ -42,8 +42,8 @@ public class StreamResolver {
         System.out.println("  Quality: " + chosen.label());
 
         var referer   = chosen.httpHeaders() != null
-            ? JSON.readTree(chosen.httpHeaders()).path("Referer").asText("https://hianime.to/")
-            : "https://hianime.to/";
+            ? JSON.readTree(chosen.httpHeaders()).path("Referer").asText("https://aniwatchtv.to/")
+            : "https://aniwatchtv.to/";
         var userAgent = chosen.httpHeaders() != null
             ? JSON.readTree(chosen.httpHeaders()).path("User-Agent").asText("Mozilla/5.0")
             : "Mozilla/5.0";

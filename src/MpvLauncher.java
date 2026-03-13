@@ -12,18 +12,13 @@ public class MpvLauncher {
             "--sub-visibility=yes",
             "--hwdec=auto",
             "--cache=yes",
-            "--demuxer-max-bytes=400MiB",
-            "--http-header-fields=Referer: %s\r\nUser-Agent: %s"
-                .formatted(info.referer(), info.userAgent())
+            "--demuxer-max-bytes=400MiB"
         ));
 
         luaScript.ifPresent(p -> cmd.add("--script=" + p));
         cmd.addAll(subArgs);
         cmd.add(info.url());
 
-        int exit = new ProcessBuilder(cmd).inheritIO().start().waitFor();
-        if (exit != 0) {
-            System.err.println("Warning: mpv exited with code " + exit);
-        }
+        new ProcessBuilder(cmd).inheritIO().start();
     }
 }
