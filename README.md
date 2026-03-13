@@ -28,12 +28,12 @@ yt-dlp does not support AniWatch natively — this plugin is required for stream
 
 **If you installed yt-dlp via Python/pip:**
 ```
-python -m pip install -U https://github.com/pratikpatel8982/yt-dlp-hianime/archive/master.zip
+pip install -U https://github.com/Tons-7/yt-dlp-aniwatchtv/archive/master.zip
 ```
 
 **If you installed yt-dlp as a standalone `.exe`:**
 
-1. Download the plugin ZIP from [github.com/pratikpatel8982/yt-dlp-hianime](https://github.com/pratikpatel8982/yt-dlp-hianime) and extract it
+1. Download the repo as a ZIP from https://github.com/Tons-7/yt-dlp-aniwatchtv and extract it
 2. Create this exact folder structure (create folders if they don't exist):
    ```
    %APPDATA%\yt-dlp\plugins\aniwatch\yt_dlp_plugins\extractor\
