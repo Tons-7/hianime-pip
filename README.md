@@ -10,7 +10,7 @@ A minimal command-line tool that plays anime from [AniWatchTV](https://aniwatcht
 | [Maven](https://maven.apache.org/download.cgi)                                 | 3.8+ | Must be on your `PATH` |
 | [mpv.net](https://github.com/mpvnet-player/mpv.net)                            | Latest | Windows mpv frontend |
 | [yt-dlp](https://github.com/yt-dlp/yt-dlp)                                     | Latest | Used to resolve stream URLs and subtitles |
-| [yt-dlp-aniwatch-kaido plugin](https://github.com/pratikpatel8982/yt-dlp-hianime) | Latest | yt-dlp extractor plugin for AniWatchTV / Kaido — **required** |
+| [yt-dlp-aniwatch-kaido plugin](https://github.com/Tons-7/yt-dlp-aniwatchtv-kaido) | Latest | yt-dlp extractor plugin for AniWatchTV / Kaido — **required** |
 
 ### Install yt-dlp
 
