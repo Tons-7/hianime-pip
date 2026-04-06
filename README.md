@@ -38,7 +38,7 @@ pip install -U https://github.com/Tons-7/yt-dlp-aniwatchtv-kaido/archive/master.
    ```
    %APPDATA%\yt-dlp\plugins\aniwatch\yt_dlp_plugins\extractor\
    ```
-3. Place `aniwatch.py` and `megacloud.py` into that `extractor` folder
+3. Place `aniwatch.py`, `kaido.py`, and `megacloud.py` into that `extractor` folder
 
 The final structure should look like:
 ```
