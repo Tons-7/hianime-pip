@@ -1,16 +1,16 @@
 # anime-pip
 
-A minimal command-line tool that plays anime from [AniWatch](https://aniwatchtv.to) in a Picture-in-Picture window using mpv, with automatic subtitle fetching and skip intro/outro support.
+A minimal command-line tool that plays anime from [AniWatchTV](https://aniwatchtv.to) or [Kaido](https://kaido.to) in a Picture-in-Picture window using mpv, with automatic subtitle fetching and skip intro/outro support.
 
 ## Prerequisites
 
-| Tool | Version | Notes |
-|------|---------|-------|
-| [Java JDK](https://jdk.java.net/25/) | 25+ | Must be on your `PATH` |
-| [Maven](https://maven.apache.org/download.cgi) | 3.8+ | Must be on your `PATH` |
-| [mpv.net](https://github.com/mpvnet-player/mpv.net) | Latest | Windows mpv frontend |
-| [yt-dlp](https://github.com/yt-dlp/yt-dlp) | Latest | Used to resolve stream URLs and subtitles |
-| [yt-dlp-aniwatch plugin](https://github.com/pratikpatel8982/yt-dlp-hianime) | Latest | yt-dlp extractor plugin for AniWatch — **required** |
+| Tool                                                                           | Version | Notes |
+|--------------------------------------------------------------------------------|---------|-------|
+| [Java JDK](https://jdk.java.net/25/)                                           | 25+ | Must be on your `PATH` |
+| [Maven](https://maven.apache.org/download.cgi)                                 | 3.8+ | Must be on your `PATH` |
+| [mpv.net](https://github.com/mpvnet-player/mpv.net)                            | Latest | Windows mpv frontend |
+| [yt-dlp](https://github.com/yt-dlp/yt-dlp)                                     | Latest | Used to resolve stream URLs and subtitles |
+| [yt-dlp-aniwatch-kaido plugin](https://github.com/pratikpatel8982/yt-dlp-hianime) | Latest | yt-dlp extractor plugin for AniWatchTV / Kaido — **required** |
 
 ### Install yt-dlp
 
@@ -22,18 +22,18 @@ Or install using Chocolatey:
 choco install yt-dlp
 ```
 
-### Install the AniWatch yt-dlp plugin
+### Install the yt-dlp plugin
 
-yt-dlp does not support AniWatch natively — this plugin is required for stream extraction to work.
+yt-dlp does not support AniWatchTV or Kaido natively — this plugin is required for stream extraction to work.
 
 **If you installed yt-dlp via Python/pip:**
 ```
-pip install -U https://github.com/Tons-7/yt-dlp-aniwatchtv/archive/master.zip
+pip install -U https://github.com/Tons-7/yt-dlp-aniwatchtv-kaido/archive/master.zip
 ```
 
 **If you installed yt-dlp as a standalone `.exe`:**
 
-1. Download the repo as a ZIP from https://github.com/Tons-7/yt-dlp-aniwatchtv and extract it
+1. Download the repo as a ZIP from https://github.com/Tons-7/yt-dlp-aniwatchtv-kaido and extract it
 2. Create this exact folder structure (create folders if they don't exist):
    ```
    %APPDATA%\yt-dlp\plugins\aniwatch\yt_dlp_plugins\extractor\
@@ -43,17 +43,18 @@ pip install -U https://github.com/Tons-7/yt-dlp-aniwatchtv/archive/master.zip
 The final structure should look like:
 ```
 %APPDATA%\yt-dlp\plugins\aniwatch\yt_dlp_plugins\extractor\aniwatch.py
+%APPDATA%\yt-dlp\plugins\aniwatch\yt_dlp_plugins\extractor\kaido.py
 %APPDATA%\yt-dlp\plugins\aniwatch\yt_dlp_plugins\extractor\megacloud.py
 ```
 
-The plugin is invoked automatically when an AniWatch URL is detected — no extra flags needed.
+The plugin is invoked automatically when an AniWatchTV or Kaido URL is detected — no extra flags needed.
 
 ## Setup
 
 **1. Clone the repo**
 ```
-git clone https://github.com/Tons-7/anime-pip
-cd anime-pip
+git clone https://github.com/Tons-7/aniwatchtv-kaido-pip
+cd aniwatchtv-kaido-pip
 ```
 
 **2. Create your `.env` file**
@@ -113,10 +114,10 @@ The tool will:
 ## How it works
 
 ```
-AniWatch URL
+Anime URL (aniwatchtv.to or kaido.to)
     │
     ▼
-yt-dlp + aniwatch plugin    → stream URL + chapters
+yt-dlp + plugin    → stream URL + chapters
     │
     ├── AniSkip API          → fallback skip times if no chapters
     ├── yt-dlp --write-subs  → English subtitles        ← parallel

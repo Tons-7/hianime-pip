@@ -13,7 +13,7 @@ private static void run() throws Exception {
     Config.validate();
 
     var scanner = new Scanner(System.in);
-    IO.print("Paste AniWatch URL: ");
+    IO.print("Paste URL: ");
     var url = scanner.nextLine().strip();
     if (url.isEmpty()) {
         System.err.println("Error: no URL provided.");

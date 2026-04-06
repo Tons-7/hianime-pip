@@ -15,6 +15,9 @@ public class MpvLauncher {
             "--demuxer-max-bytes=400MiB"
         ));
 
+        cmd.add("--referrer=" + info.referer());
+        cmd.add("--user-agent=" + info.userAgent());
+
         luaScript.ifPresent(p -> cmd.add("--script=" + p));
         cmd.addAll(subArgs);
         cmd.add(info.url());

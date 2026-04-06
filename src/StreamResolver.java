@@ -41,9 +41,10 @@ public class StreamResolver {
 
         System.out.println("  Quality: " + chosen.label());
 
+        var fallbackReferer = url.replaceFirst("(https?://[^/]+).*", "$1/");
         var referer   = chosen.httpHeaders() != null
-            ? JSON.readTree(chosen.httpHeaders()).path("Referer").asText("https://aniwatchtv.to/")
-            : "https://aniwatchtv.to/";
+            ? JSON.readTree(chosen.httpHeaders()).path("Referer").asText(fallbackReferer)
+            : fallbackReferer;
         var userAgent = chosen.httpHeaders() != null
             ? JSON.readTree(chosen.httpHeaders()).path("User-Agent").asText("Mozilla/5.0")
             : "Mozilla/5.0";
